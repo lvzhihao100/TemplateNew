@@ -113,12 +113,14 @@ public class MainDialog extends JDialog {
             String text = etActivity.getText();
             TemplateConfig.activityName = text;
             createActivity();
+            setVisible(false);
             Messages.showMessageDialog(TemplateConfig.project, text + "Activity创建完成", "提示", Messages.getInformationIcon());
         });
         btFragment.addActionListener(actionEvent -> {
             String text = etFragment.getText();
             TemplateConfig.fragmentName = text;
             createFragment();
+            setVisible(false);
             Messages.showMessageDialog(TemplateConfig.project, text + "Fragment创建完成", "提示", Messages.getInformationIcon());
         });
 

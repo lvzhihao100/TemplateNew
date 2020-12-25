@@ -231,7 +231,7 @@ class ${TemplateConfig.fragmentName.capitalize()}FragmentRepository @Inject cons
         var content = """
 package com.gamerole.${TemplateConfig.currentModule}.ui.fragment
 
-import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gamerole.commom.RoutePath
 import com.gamerole.commom.base.BaseFragment
@@ -242,10 +242,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 @Route(path = RoutePath.${TemplateConfig.currentModule.toUpperCase()}_FRAGMENT${TemplateConfig.fragmentName.underLine().toUpperCase()})
-class ${TemplateConfig.fragmentName.capitalize()}Fragment : BaseFragment() {
+class ${TemplateConfig.fragmentName.capitalize()}Fragment : BaseFragment(R.layout.${TemplateConfig.currentModule.toLowerCase() + "_fragment" + FileUtil.underLine(TemplateConfig.fragmentName)}) {
 
     private val viewModel${TemplateConfig.fragmentName.capitalize()}Fragment: ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel by viewModels()
-    override fun getViewModel() = viewModel${TemplateConfig.fragmentName.capitalize()}
+    override fun getViewModel() = viewModel${TemplateConfig.fragmentName.capitalize()}Fragment
     private val binding: ${TemplateConfig.currentModule.capitalize()}Fragment${TemplateConfig.fragmentName.capitalize()}Binding by viewbind()
 
     override fun initView() {
