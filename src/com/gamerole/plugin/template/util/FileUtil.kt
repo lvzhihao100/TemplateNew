@@ -1,9 +1,7 @@
 package com.gamerole.plugin.template.util
 
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
+import java.io.*
+
 
 object FileUtil {
     @JvmStatic
@@ -17,10 +15,19 @@ object FileUtil {
         var buf = ByteArray(1024)
         val sb = StringBuffer()
         while (fis.read(buf) != -1) {
-            sb.append(String(buf,charset("utf-8")))
+            sb.append(String(buf, charset("utf-8")))
             buf = ByteArray(1024)//重新生成，避免和上次读取的数据重复
         }
         return sb.toString()
+    }
+    fun readFileNew(path: String): String? {
+        val reader = BufferedReader(FileReader(path))
+        var str: String?
+        var stringBuilder=StringBuilder()
+        while (reader.readLine().also { str = it } != null) {
+            stringBuilder.append(str+"\n")
+        }
+        return stringBuilder.toString()
     }
 
     /**
@@ -38,11 +45,11 @@ object FileUtil {
         out.close()
     }
     @JvmStatic
-    fun capitalize(str:String):String{
+    fun capitalize(str: String):String{
         return str.capitalize()
     }
     @JvmStatic
-    fun underLine(str:String):String{
+    fun underLine(str: String):String{
         return str.underLine()
     }
 }

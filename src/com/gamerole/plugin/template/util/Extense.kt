@@ -10,10 +10,11 @@ inline fun String.underLine(): String {
         matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
     }
     matcher.appendTail(sb);
-    return sb.toString();
+
+    return if (sb.toString().startsWith("_")) sb.toString() else ("_$sb");
 }
 
 fun main(args: Array<String>) {
-    var a = "UnderLine"
+    var a = "UserData"
     println(a.underLine())
 }

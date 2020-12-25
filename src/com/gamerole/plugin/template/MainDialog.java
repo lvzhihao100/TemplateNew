@@ -29,7 +29,16 @@ public class MainDialog extends JDialog {
         generateRepository(daimaPath + "/repository/" + FileUtil.capitalize(TemplateConfig.activityName) + "Repository.kt");
         generateActivity(daimaPath + "/ui/" + FileUtil.capitalize(TemplateConfig.activityName) + "Activity.kt");
         generateViewModel(daimaPath + "/viewmodel/" + FileUtil.capitalize(TemplateConfig.activityName) + "ViewModel.kt");
-        generateXml(resPath + "/layout/" + TemplateConfig.currentModule.toLowerCase() + "_activity" + FileUtil.underLine(TemplateConfig.activityName.toLowerCase()) + ".xml");
+        generateXml(resPath + "/layout/" + TemplateConfig.currentModule.toLowerCase() + "_activity" + FileUtil.underLine(TemplateConfig.activityName) + ".xml");
+    }
+
+    private void createFragment() {
+        String daimaPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.gamerolePath + TemplateConfig.currentModule.toLowerCase();
+        String resPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.resPath;
+        generateFragmentRepository(daimaPath + "/repository/" + FileUtil.capitalize(TemplateConfig.fragmentName) + "FragmentRepository.kt");
+        generateFragment(daimaPath + "/ui/fragment/" + FileUtil.capitalize(TemplateConfig.fragmentName) + "Fragment.kt");
+        generateFragmentViewModel(daimaPath + "/viewmodel/" + FileUtil.capitalize(TemplateConfig.fragmentName) + "FragmentViewModel.kt");
+        generateFragmentXml(resPath + "/layout/" + TemplateConfig.currentModule.toLowerCase() + "_fragment" + FileUtil.underLine(TemplateConfig.fragmentName) + ".xml");
     }
 
     private void createModule(String basePath, String module) {
@@ -62,6 +71,7 @@ public class MainDialog extends JDialog {
         dirs.add(daimaPath + "/router");
         dirs.add(daimaPath + "/service");
         dirs.add(daimaPath + "/ui");
+        dirs.add(daimaPath + "/ui/fragment");
         dirs.add(daimaPath + "/util");
         dirs.add(daimaPath + "/viewmodel");
         //res
@@ -103,7 +113,14 @@ public class MainDialog extends JDialog {
             String text = etActivity.getText();
             TemplateConfig.activityName = text;
             createActivity();
-            Messages.showMessageDialog(TemplateConfig.project, text + "activity创建完成", "提示", Messages.getInformationIcon());
+            Messages.showMessageDialog(TemplateConfig.project, text + "Activity创建完成", "提示", Messages.getInformationIcon());
         });
+        btFragment.addActionListener(actionEvent -> {
+            String text = etFragment.getText();
+            TemplateConfig.fragmentName = text;
+            createFragment();
+            Messages.showMessageDialog(TemplateConfig.project, text + "Fragment创建完成", "提示", Messages.getInformationIcon());
+        });
+
     }
 }

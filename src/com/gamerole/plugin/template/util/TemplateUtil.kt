@@ -132,8 +132,8 @@ dependencies {
     @JvmStatic
     fun generateSetting(path: String) {
         var file = File(path)
-        var content = (FileUtil.readFile(path) ?: "") + """
-include ':mine'
+        var content = (FileUtil.readFileNew(path) ?: "") + """
+include ':${TemplateConfig.module}'
         """.trimIndent()
         FileUtil.writeFile(file, content)
     }
@@ -206,6 +206,61 @@ class ${TemplateConfig.activityName.capitalize()}Repository @Inject constructor(
     }
 
     @JvmStatic
+    fun generateFragmentRepository(path: String) {
+        var file = File(path)
+        var content = """
+package com.gamerole.${TemplateConfig.currentModule}.repository
+
+import com.gamerole.${TemplateConfig.currentModule}.service.HttpService
+import javax.inject.Inject
+
+class ${TemplateConfig.fragmentName.capitalize()}FragmentRepository @Inject constructor(private var httpService: HttpService) {
+
+}
+        """.trimIndent()
+        FileUtil.writeFile(file, content)
+    }
+
+    @JvmStatic
+    fun generateFragment(path: String) {
+
+        var file = File(path)
+        if (!file.parentFile.exists()) {
+            file.parentFile.mkdirs()
+        }
+        var content = """
+package com.gamerole.${TemplateConfig.currentModule}.ui.fragment
+
+import androidx.activity.viewModels
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.gamerole.commom.RoutePath
+import com.gamerole.commom.base.BaseFragment
+import com.gamerole.${TemplateConfig.currentModule}.databinding.${TemplateConfig.currentModule.capitalize()}Fragment${TemplateConfig.fragmentName.capitalize()}Binding
+import com.gamerole.${TemplateConfig.currentModule}.viewmodel.${TemplateConfig.fragmentName.capitalize()}FragmentViewModel
+import com.hi.dhl.binding.viewbind
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+@Route(path = RoutePath.${TemplateConfig.currentModule.toUpperCase()}_FRAGMENT${TemplateConfig.fragmentName.underLine().toUpperCase()})
+class ${TemplateConfig.fragmentName.capitalize()}Fragment : BaseFragment() {
+
+    private val viewModel${TemplateConfig.fragmentName.capitalize()}Fragment: ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel by viewModels()
+    override fun getViewModel() = viewModel${TemplateConfig.fragmentName.capitalize()}
+    private val binding: ${TemplateConfig.currentModule.capitalize()}Fragment${TemplateConfig.fragmentName.capitalize()}Binding by viewbind()
+
+    override fun initView() {
+        with(binding) {
+        }
+    }
+    override fun initData() {
+
+    }
+}
+        """.trimIndent()
+        FileUtil.writeFile(file, content)
+    }
+
+    @JvmStatic
     fun generateActivity(path: String) {
         var file = File(path)
         var content = """
@@ -241,6 +296,23 @@ class ${TemplateConfig.activityName.capitalize()}Activity : BaseActivity() {
         FileUtil.writeFile(file, content)
     }
 
+    @JvmStatic
+    fun generateFragmentViewModel(path: String) {
+        var file = File(path)
+        var content = """
+package com.gamerole.${TemplateConfig.currentModule}.viewmodel
+
+import androidx.hilt.lifecycle.ViewModelInject
+import com.gamerole.commom.base.BaseViewModel
+import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.fragmentName.capitalize()}FragmentRepository
+
+class ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.fragmentName.capitalize()}FragmentRepository) :
+    BaseViewModel() {
+
+}
+        """.trimIndent()
+        FileUtil.writeFile(file, content)
+    }
 
     @JvmStatic
     fun generateViewModel(path: String) {
@@ -261,6 +333,25 @@ class ${TemplateConfig.activityName.capitalize()}ViewModel @ViewModelInject cons
     }
 
     @JvmStatic
+    fun generateFragmentXml(path: String) {
+
+        var file = File(path)
+        var content = """
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/commonBgDeep"
+    tools:context=".ui.fragment.${TemplateConfig.fragmentName}Fragment"
+    android:layout_height="match_parent">
+
+</LinearLayout>
+        """.trimIndent()
+        FileUtil.writeFile(file, content)
+    }
+
+    @JvmStatic
     fun generateXml(path: String) {
 
         var file = File(path)
@@ -273,7 +364,7 @@ class ${TemplateConfig.activityName.capitalize()}ViewModel @ViewModelInject cons
     android:background="@color/commonBgDeep"
     tools:context=".ui.${TemplateConfig.activityName}Activity"
     android:layout_height="match_parent">
-    <include layout="@layout/common_include_head"/>
+    <include layout="@layout/common_include_head" android:id="@+id/llIncludeHead" />
 
 </LinearLayout>
         """.trimIndent()
