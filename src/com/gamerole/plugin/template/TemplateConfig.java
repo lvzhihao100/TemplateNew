@@ -10,6 +10,7 @@ public class TemplateConfig {
     public static  String module="";
     public static  String activityName="";
     public static  String fragmentName="";
+    public static  String dialogName="";
     public static  String currentModule="";
     public static  String basePath="";
     public static Project project;

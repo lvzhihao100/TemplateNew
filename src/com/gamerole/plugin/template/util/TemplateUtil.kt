@@ -4,6 +4,12 @@ import com.gamerole.plugin.template.TemplateConfig
 import java.io.File
 
 object TemplateUtil {
+
+
+
+
+
+
     @JvmStatic
     fun generateBuildGradle(path: String) {
         var file = File(path)
@@ -278,7 +284,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 @Route(path = RoutePath.${TemplateConfig.currentModule.toUpperCase()}${TemplateConfig.activityName.underLine().toUpperCase()})
 class ${TemplateConfig.activityName.capitalize()}Activity : BaseActivity() {
-    override fun getImmersion() = true
+    override fun getImmersion() = false
 
     private val viewModel${TemplateConfig.activityName.capitalize()}: ${TemplateConfig.activityName.capitalize()}ViewModel by viewModels()
     override fun getViewModel() = viewModel${TemplateConfig.activityName.capitalize()}
@@ -343,7 +349,7 @@ class ${TemplateConfig.activityName.capitalize()}ViewModel @ViewModelInject cons
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/commonBgDeep"
-    tools:context=".ui.fragment.${TemplateConfig.fragmentName}Fragment"
+    tools:context=".ui.fragment.${TemplateConfig.fragmentName.capitalize()}Fragment"
     android:layout_height="match_parent">
 
 </LinearLayout>

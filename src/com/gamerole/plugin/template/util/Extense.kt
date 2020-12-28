@@ -14,6 +14,10 @@ inline fun String.underLine(): String {
     return if (sb.toString().startsWith("_")) sb.toString() else ("_$sb");
 }
 
+inline fun String.firstLow(): String {
+    return (get(0) + "").toLowerCase() + substring(1)
+}
+
 fun main(args: Array<String>) {
     var a = "UserData"
     println(a.underLine())
