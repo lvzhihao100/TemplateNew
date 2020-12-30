@@ -39,7 +39,11 @@ package com.gamerole.${TemplateConfig.currentModule}.repository
 
 import com.gamerole.${TemplateConfig.currentModule}.service.HttpService
 import javax.inject.Inject
-
+import com.skydoves.sandwich.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import com.gamerole.commom.http.Resource
 class ${TemplateConfig.fragmentName.capitalize()}FragmentRepository @Inject constructor(private var httpService: HttpService) {
 
 }
@@ -97,6 +101,15 @@ package com.gamerole.${TemplateConfig.currentModule}.viewmodel
 import androidx.hilt.lifecycle.ViewModelInject
 import com.gamerole.commom.base.BaseViewModel
 import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.fragmentName.capitalize()}FragmentRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.gamerole.commom.entity.HttpData
+import com.gamerole.commom.http.NetworkAdapter
+import com.gamerole.commom.http.Resource
 
 class ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.fragmentName.capitalize()}FragmentRepository) :
     BaseViewModel() {
