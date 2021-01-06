@@ -8,6 +8,7 @@ object TemplateModuleUtil {
     fun generateBuildGradle(path: String) {
         var file = File(path)
         var content = """
+import com.gamerole.plugin.BuildConfig
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
@@ -16,12 +17,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion BuildConfig.compileSdkVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1"
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
         kapt { arguments { arg("AROUTER_MODULE_NAME", project.getName()) } }
     }
     buildTypes {

@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.gamerole.plugin.template</id>
   <name>name</name>
-  <version>1.0</version>
+  <version>3.0</version>
   <vendor email="1030753080@qq.com" url="http://www.baidu.com">沙僧科技</vendor>
 
   <description>
@@ -28,7 +28,7 @@
   <actions>
 
     <action id="template" class="com.gamerole.plugin.template.Main" text="Main" description="模板">
-      <add-to-group group-id="HelpMenu" anchor="after" relative-to-action="About"/>
+      <add-to-group group-id="HelpMenu" anchor="before" relative-to-action="About"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl T"/>
     </action>
   </actions>
