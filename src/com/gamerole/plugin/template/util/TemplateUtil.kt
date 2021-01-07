@@ -57,7 +57,7 @@ dependencies {
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
-    api project(path: ':commom')
+    api project(path: ':common')
 
 
 
@@ -182,7 +182,7 @@ object NetworkModule {
         var content = """
 package com.gamerole.${TemplateConfig.module}.service
 
-import com.gamerole.commom.entity.HttpData
+import com.gamerole.common.entity.HttpData
 import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -239,8 +239,8 @@ package com.gamerole.${TemplateConfig.currentModule}.ui.fragment
 
 import androidx.fragment.app.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.gamerole.commom.RoutePath
-import com.gamerole.commom.base.BaseFragment
+import com.gamerole.common.RoutePath
+import com.gamerole.common.base.BaseFragment
 import com.gamerole.${TemplateConfig.currentModule}.databinding.${TemplateConfig.currentModule.capitalize()}Fragment${TemplateConfig.fragmentName.capitalize()}Binding
 import com.gamerole.${TemplateConfig.currentModule}.viewmodel.${TemplateConfig.fragmentName.capitalize()}FragmentViewModel
 import com.hi.dhl.binding.viewbind
@@ -274,8 +274,8 @@ package com.gamerole.${TemplateConfig.currentModule}.ui
 
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.gamerole.commom.RoutePath
-import com.gamerole.commom.base.BaseActivity
+import com.gamerole.common.RoutePath
+import com.gamerole.common.base.BaseActivity
 import com.gamerole.${TemplateConfig.currentModule}.databinding.${TemplateConfig.currentModule.capitalize()}Activity${TemplateConfig.activityName.capitalize()}Binding
 import com.gamerole.${TemplateConfig.currentModule}.viewmodel.${TemplateConfig.activityName.capitalize()}ViewModel
 import com.hi.dhl.binding.viewbind
@@ -309,7 +309,7 @@ class ${TemplateConfig.activityName.capitalize()}Activity : BaseActivity() {
 package com.gamerole.${TemplateConfig.currentModule}.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.gamerole.commom.base.BaseViewModel
+import com.gamerole.common.base.BaseViewModel
 import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.fragmentName.capitalize()}FragmentRepository
 
 class ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.fragmentName.capitalize()}FragmentRepository) :
@@ -327,7 +327,7 @@ class ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel @ViewModelInj
 package com.gamerole.${TemplateConfig.currentModule}.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.gamerole.commom.base.BaseViewModel
+import com.gamerole.common.base.BaseViewModel
 import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.activityName.capitalize()}Repository
 
 class ${TemplateConfig.activityName.capitalize()}ViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.activityName.capitalize()}Repository) :

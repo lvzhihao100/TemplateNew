@@ -52,7 +52,7 @@ dependencies {
     kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
-    api project(path: ':commom')
+    api project(path: ':common')
 
 
 
@@ -177,7 +177,7 @@ object NetworkModule {
         var content = """
 package com.gamerole.${TemplateConfig.module}.service
 
-import com.gamerole.commom.entity.HttpData
+import com.gamerole.common.entity.HttpData
 import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -61,7 +61,7 @@ public class MainDialog extends JDialog {
 
     private void createDialog() {
         String daimaPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.gamerolePath + TemplateConfig.currentModule.toLowerCase();
-        String commonPath = TemplateConfig.basePath + "/commom/src/main/java/com/gamerole/commom/Config.kt";
+        String commonPath = TemplateConfig.basePath + "/common/src/main/java/com/gamerole/common/Config.kt";
         String resPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.resPath;
         TemplateDialogUtil.generateDialogConst(commonPath);
         TemplateDialogUtil.generateDialogRepository(daimaPath + "/repository/" + FileUtil.capitalize(TemplateConfig.dialogName) + "DialogRepository.kt");
@@ -72,7 +72,7 @@ public class MainDialog extends JDialog {
 
     private void createActivity() {
         String daimaPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.gamerolePath + TemplateConfig.currentModule.toLowerCase();
-        String commonPath = TemplateConfig.basePath + "/commom/src/main/java/com/gamerole/commom/Config.kt";
+        String commonPath = TemplateConfig.basePath + "/common/src/main/java/com/gamerole/common/Config.kt";
         String resPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.resPath;
         String manifest = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/src/main/AndroidManifest.xml";
         TemplateActivityUtil.generateManifest(manifest);
@@ -85,7 +85,7 @@ public class MainDialog extends JDialog {
 
     private void createFragment() {
         String daimaPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.gamerolePath + TemplateConfig.currentModule.toLowerCase();
-        String commonPath = TemplateConfig.basePath + "/commom/src/main/java/com/gamerole/commom/Config.kt";
+        String commonPath = TemplateConfig.basePath + "/common/src/main/java/com/gamerole/common/Config.kt";
         String resPath = TemplateConfig.basePath + "/" + TemplateConfig.currentModule + "/" + TemplateConfig.resPath;
         TemplateFragmentUtil.generateFragmentConst(commonPath);
         TemplateFragmentUtil.generateFragmentRepository(daimaPath + "/repository/" + FileUtil.capitalize(TemplateConfig.fragmentName) + "FragmentRepository.kt");

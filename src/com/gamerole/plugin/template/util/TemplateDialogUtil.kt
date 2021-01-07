@@ -43,7 +43,7 @@ import com.skydoves.sandwich.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import com.gamerole.commom.http.Resource
+import com.gamerole.common.http.Resource
 
 class ${TemplateConfig.dialogName.capitalize()}DialogRepository @Inject constructor(private var httpService: HttpService) {
 
@@ -64,8 +64,8 @@ package com.gamerole.${TemplateConfig.currentModule}.ui.dialog
 
 import androidx.fragment.app.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.gamerole.commom.RoutePath
-import com.gamerole.commom.base.BaseDialog
+import com.gamerole.common.RoutePath
+import com.gamerole.common.base.BaseDialog
 import com.gamerole.${TemplateConfig.currentModule}.databinding.${TemplateConfig.currentModule.capitalize()}Dialog${TemplateConfig.dialogName.capitalize()}Binding
 import com.gamerole.${TemplateConfig.currentModule}.viewmodel.${TemplateConfig.dialogName.capitalize()}DialogViewModel
 import com.hi.dhl.binding.viewbind
@@ -101,7 +101,7 @@ class ${TemplateConfig.dialogName.capitalize()}Dialog : BaseDialog() {
 package com.gamerole.${TemplateConfig.currentModule}.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.gamerole.commom.base.BaseViewModel
+import com.gamerole.common.base.BaseViewModel
 import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.dialogName.capitalize()}DialogRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -109,9 +109,9 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.gamerole.commom.entity.HttpData
-import com.gamerole.commom.http.NetworkAdapter
-import com.gamerole.commom.http.Resource
+import com.gamerole.common.entity.HttpData
+import com.gamerole.common.http.NetworkAdapter
+import com.gamerole.common.http.Resource
 
 class ${TemplateConfig.dialogName.capitalize()}DialogViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.dialogName.capitalize()}DialogRepository) :
     BaseViewModel() {

@@ -43,7 +43,7 @@ import com.skydoves.sandwich.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import com.gamerole.commom.http.Resource
+import com.gamerole.common.http.Resource
 class ${TemplateConfig.fragmentName.capitalize()}FragmentRepository @Inject constructor(private var httpService: HttpService) {
 
 }
@@ -63,8 +63,8 @@ package com.gamerole.${TemplateConfig.currentModule}.ui.fragment
 
 import androidx.fragment.app.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.gamerole.commom.RoutePath
-import com.gamerole.commom.base.BaseFragment
+import com.gamerole.common.RoutePath
+import com.gamerole.common.base.BaseFragment
 import com.gamerole.${TemplateConfig.currentModule}.databinding.${TemplateConfig.currentModule.capitalize()}Fragment${TemplateConfig.fragmentName.capitalize()}Binding
 import com.gamerole.${TemplateConfig.currentModule}.viewmodel.${TemplateConfig.fragmentName.capitalize()}FragmentViewModel
 import com.hi.dhl.binding.viewbind
@@ -99,7 +99,7 @@ class ${TemplateConfig.fragmentName.capitalize()}Fragment : BaseFragment(R.layou
 package com.gamerole.${TemplateConfig.currentModule}.viewmodel
 
 import androidx.hilt.lifecycle.ViewModelInject
-import com.gamerole.commom.base.BaseViewModel
+import com.gamerole.common.base.BaseViewModel
 import com.gamerole.${TemplateConfig.currentModule}.repository.${TemplateConfig.fragmentName.capitalize()}FragmentRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -107,9 +107,9 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.gamerole.commom.entity.HttpData
-import com.gamerole.commom.http.NetworkAdapter
-import com.gamerole.commom.http.Resource
+import com.gamerole.common.entity.HttpData
+import com.gamerole.common.http.NetworkAdapter
+import com.gamerole.common.http.Resource
 
 class ${TemplateConfig.fragmentName.capitalize()}FragmentViewModel @ViewModelInject constructor(private var repository: ${TemplateConfig.fragmentName.capitalize()}FragmentRepository) :
     BaseViewModel() {
