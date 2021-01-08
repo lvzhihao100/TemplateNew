@@ -16,9 +16,9 @@
     </change-notes>
 
 
-    <idea-version since-build="201.8743.12"/>
-    <depends>com.intellij.modules.androidstudio</depends>
-    <depends>org.jetbrains.android</depends>
+<!--    <idea-version since-build="201.8743.12"/>-->
+<!--    <depends>com.intellij.modules.androidstudio</depends>-->
+<!--    <depends>org.jetbrains.android</depends>-->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">

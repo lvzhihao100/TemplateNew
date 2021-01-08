@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Common.Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+
+        <item name="colorPrimary">@color/commonApp</item>
+        <item name="colorPrimaryVariant">@color/commonApp</item>
+        <item name="colorOnPrimary">@color/commonApp</item>
+
+        <item name="colorSecondary">@color/commonApp</item>
+        <item name="colorSecondaryVariant">@color/commonApp</item>
+        <item name="colorOnSecondary">@color/commonApp</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/commonWhite</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!--默认所有按钮样式-->
+        <item name="buttonStyle">@style/CommonButton</item>
+        <!--默认text字体颜色-->
+        <item name="android:textColor">@color/commonTextContent</item>
+        <!--输入框默认输入字体-->
+        <item name="editTextColor">@color/commonTextContent</item>
+        <!--提示字体颜色-->
+        <item name="android:textColorHint">@color/commonTextHint</item>
+    </style>
+
+    <style name="CommonButton">
+        <item name="android:stateListAnimator">@drawable/common_button_press_anim</item>
+        <item name="android:background">@drawable/common_shape_button</item>
+        <item name="android:textColor">@color/commonWhite</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CommonDividerStyle">
+        <item name="android:background">@color/commonDivider</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="common_custom_dialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>
+        //Dialog的windowFrame框为无
+        <item name="android:windowIsFloating">true</item>
+        //是否浮现在activity之上
+        <item name="android:windowIsTranslucent">true</item>
+        //是否半透明
+        <item name="android:windowNoTitle">true</item>
+        //是否显示title
+        <item name="android:background">@android:color/transparent</item>
+        //设置dialog的背景
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        //就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>

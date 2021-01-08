@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    换肤产品，颜色-->
+        <color name="appTextTitle">#fff</color>
+        <color name="appTextContent">#333333</color>
+        <color name="appTextHint">#777777</color>
+        <color name="appBgDeep">#fff</color>
+        <color name="appBg">#fff</color>
+        <color name="appSelect">@color/commonSelect</color>
+        <color name="appUnSelect">@color/commonUnSelect</color>
+        <color name="appGreen">#fff</color>
+        <color name="appRed">#fff</color>
+        <color name="appGreenHint">#fff</color>
+        <color name="appRedHint">#fff</color>
+        <color name="appDivider">#F5F5F5</color>
+        <color name="appDividerDeep">#C3C3C3</color>
+        <color name="appApp">#1986F5</color>
+        <color name="appStroke">#1986F5</color>
+
+
+</resources>

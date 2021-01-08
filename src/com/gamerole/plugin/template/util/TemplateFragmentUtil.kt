@@ -9,8 +9,8 @@ object TemplateFragmentUtil {
     fun generateFragmentConst(path: String) {
         var file = File(path)
         var oldContent = FileUtil.readFileNew(path)
-        var content = """
-       const val ${TemplateConfig.currentModule.toUpperCase()}"_FRAGMENT"+${TemplateConfig.fragmentName.underLine().toUpperCase()}="/${TemplateConfig.currentModule.toLowerCase()}/fragment${TemplateConfig.fragmentName}"
+        var content = """ 
+        const val ${TemplateConfig.currentModule.toUpperCase()}_FRAGMENT${TemplateConfig.fragmentName.underLine().toUpperCase()}="/${TemplateConfig.currentModule.toLowerCase()}/fragment${TemplateConfig.fragmentName}"
         """.trimIndent()
         //
         var pattern = Pattern.compile("const val ${TemplateConfig.currentModule.toUpperCase()}_[\\s\\S].*?[A-Z|a-z]\"", Pattern.DOTALL)
@@ -23,7 +23,7 @@ object TemplateFragmentUtil {
             var matcherNew = patternNew.matcher(oldContent)
             if (matcherNew.find()) {
                 var oldReplace = matcherNew.group()
-                var newReplace = matcherNew.group(1) + "\t"+content + "\n\t}"
+                var newReplace = matcherNew.group(1) + "\n\t"+content + "\n\t}"
                 oldContent = oldContent?.replace(oldReplace, newReplace)
             }
         }
@@ -60,7 +60,7 @@ class ${TemplateConfig.fragmentName.capitalize()}FragmentRepository @Inject cons
         }
         var content = """
 package com.gamerole.${TemplateConfig.currentModule}.ui.fragment
-
+import com.gamerole.${TemplateConfig.currentModule}.R
 import androidx.fragment.app.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.gamerole.common.RoutePath

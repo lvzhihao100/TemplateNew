@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="commonTextTitleColor" format="color" />
+    <attr name="commonTextContentColor" format="color" />
+    <attr name="commonTextHintColor" format="color" />
+    <attr name="commonBgDeepColor" format="color" />
+    <attr name="commonBgColor" format="color" />
+    <attr name="commonSelectColor" format="color" />
+    <attr name="commonUnSelectColor" format="color" />
+    <attr name="commonDividerColor" format="color" />
+    <attr name="commonDividerHintColor" format="color" />
+    <attr name="commonDividerDeepColor" format="color" />
+    <attr name="commonAppColor" format="color" />
+</resources>
